@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Bihar ePDS</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_ack">Dealer Acknowledgement</string>
+    <string name="nav_status">Daily DSD Status</string>
+    <string name="nav_about_us">About Us</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Home</item>
+        <item>Dealer Acknowledgement Form</item>
+        <item>Daily DSD Status</item>
+
+    </string-array>
+
+    <string name="activity_title_about_us">About Us</string>
+    <string name="action_signout">Sign Out</string>
+    <string name="activity_title_refresh">Refresh</string>
+    <string name="activity_exist">Exist</string>
+    <string name="label_signin">Sign In</string>
+    <string name="sign_in_to_continue">Sign in to Continue</string>
+    <string name="sign_in_sub_text">Just a enter details to get you started</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="footer_text">Designed &amp; Developed by 4G Identity Solutions Pvt Ltd.</string>
+    <string name="about_us_sfc_title"><![CDATA[BIHAR STATE FOOD & CIVIL SUPPLIES]]></string>
+    <string name="about_us_fourg_txt">4G Identity Solutions Pvt Ltd.</string>
+    <string name="about_us_designed">Designed and Developed</string>
+    <string name="about_us_sfc_desc">Bihar State Food and Civil Supplies Corporation Limited was established on 2nd April 1973, under the company Act, 1956 and public incorporated on 17 April 1973. It is classified as State Govt company and is registered at Registrar of Companies, Patna. Its authorized share capital is Rs. 100,000,000 and its paid up capital is Rs. 43,599,000.It is inolved in Manufacture of grain mill products.</string>
+    <string name="about_us_sfc_dsc2"><![CDATA[BSFC has been procuring rice /wheat under Decentralized Procurement (DCP) scheme of Govt. of India since Kharif/Rabi Marketing Season (KMS) 2013-14/RMS 14-15 involving direct purchase of paddy/wheat from farmers & milling it into rice for distribution in various schemes under Public Distribution System (PDS).]]></string>
+    <string name="about_us_addrs"><![CDATA[330 & 331, Road No. 79,Jubilee Hills, Hyderabad, Telangana 500033]]></string>
+    <string name="about_us_phone">040 2355 8789</string>
+    <string name="about_us_email">info@4gid.com</string>
+    <string name="ack_aay_wheat">AAY Wheat:</string>
+    <string name="ack_phh_rice">PHH Rice:</string>
+    <string name="ack_phh_wheat">PHH Wheat:</string>
+    <string name="ack_edit_title">Enter DSD Quantity in Quintal</string>
+    <string name="lbl_chart_status">this month DSD status</string>
+
+
+</resources>

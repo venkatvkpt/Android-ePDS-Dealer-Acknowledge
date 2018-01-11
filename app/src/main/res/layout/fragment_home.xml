@@ -1,0 +1,212 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="in.gov.bihar.sfc.biharepds.fragment.HomeFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/toolbar_shape" />
+
+    <RelativeLayout
+        android:id="@+id/Title_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/layout_shadow">
+
+        <TextView
+            android:id="@+id/welcome_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="Welcome"
+            android:textColor="@color/colorOrange"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/dealer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/welcome_user"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="23dp" />
+
+        <TextView
+            android:id="@+id/dealer_license_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dealer_name"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/navigationBarColor"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/dealer_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dealer_license_number"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginTop="5sp"
+            android:gravity="center"
+            android:textColor="@color/navigationBarColor"
+            android:textSize="18dp"
+
+            />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/home_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footer"
+        android:layout_alignEnd="@+id/Title_card"
+        android:layout_alignStart="@+id/Title_card"
+        android:layout_below="@+id/Title_card"
+        android:layout_marginBottom="5dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:id="@+id/p_chart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Title_card"
+                android:layout_marginTop="25dp"
+                android:gravity="center">
+
+                <FrameLayout
+                    android:id="@+id/process_chart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.txusballesteros.widgets.FitChart
+                        android:id="@+id/fitChart"
+                        style="@style/chart_style"
+                        android:layout_gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/set_percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:maxWidth="200dp"
+                            android:textColor="#212121"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:maxWidth="200dp"
+                            android:text="@string/lbl_chart_status"
+                            android:textColor="#757575"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/lbl_qty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:gravity="center"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="17dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/navigationBarColor"
+        android:padding="10dp">
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/nav_status"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableBottom="@drawable/ic_assignment_late_white_24dp"
+                    android:gravity="center"
+                    android:padding="10dip" />
+
+                <TextView
+                    android:id="@+id/nav_home"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableBottom="@drawable/ic_home_white_36dp"
+                    android:gravity="center"
+                    android:padding="4dip" />
+
+                <TextView
+                    android:id="@+id/nav_ack"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:drawableBottom="@drawable/ic_assignment_white_24dp"
+                    android:gravity="center"
+                    android:padding="10dip" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/home_progressBar"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorPrimaryDark"
+        />
+
+
+</RelativeLayout>

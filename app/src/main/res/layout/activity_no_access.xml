@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_no_access"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="in.gov.bihar.sfc.biharepds.activity.NoAccessActivity">
+
+    <RelativeLayout
+        android:id="@+id/net_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+        <TextView
+            android:id="@+id/error_Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Error"
+            android:layout_marginTop="40sp"
+            android:textColor="@color/colorOrange"
+            android:textSize="40dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/error_sub"
+            android:layout_below="@+id/error_Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Internet Connection"
+            android:layout_marginTop="10sp"
+            android:textColor="@color/navigationBarColor"
+            android:textSize="20dp"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/wifi"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:src="@drawable/wifi"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            />
+
+        <ImageView
+            android:id="@+id/try_again"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/try_btn"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
