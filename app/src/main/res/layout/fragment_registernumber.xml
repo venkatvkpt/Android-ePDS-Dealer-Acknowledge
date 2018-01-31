@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:padding="2dp"
+    android:paddingBottom="4dp"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    android:paddingStart="4dp"
+    android:paddingTop="4dp"
+    android:textColor="@color/colorBackground"
+    tools:context="in.gov.bihar.sfc.biharepds.fragment.RegisterNumberFragment"
+    android:orientation="vertical"
+    android:baselineAligned="false">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/editable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10sp"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:stretchColumns="1">
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/dsd_lblTitle"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_span="2"
+                        android:text="Add Citizen Contact Details"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="5dp"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:text="Citizen Name "
+                        android:textSize="20dp"
+                        />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginBottom="25dp">
+
+
+                    <EditText
+                        android:id="@+id/c_name"
+                        android:layout_height="40dp"
+                        android:layout_column="0"
+                        android:layout_span="2"
+                        android:background="@drawable/edittext_border"
+                        android:hint=" Enter Name of Beneficiary"
+                        android:inputType="textCapCharacters"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:text="Contact Number"
+                        android:textSize="20dp"/>
+
+
+                </TableRow>
+
+                <TableRow android:layout_marginBottom="25dp">
+
+
+                    <EditText
+                        android:id="@+id/c_number"
+                        android:layout_height="40dp"
+                        android:layout_column="0"
+                        android:layout_span="2"
+                        android:background="@drawable/edittext_border"
+                        android:hint=" Enter Beneficiary Mobile No"
+                        android:inputType="number|numberDecimal|phone"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp" />
+                </TableRow>
+                <TableRow
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:text="Email Address (optional)"
+                        android:textSize="20dp"/>
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginBottom="5dp">
+
+
+                    <EditText
+                        android:id="@+id/c_email"
+                        android:layout_height="40dp"
+                        android:layout_column="0"
+                        android:layout_span="2"
+                        android:background="@drawable/edittext_border"
+                        android:hint=" Enter Beneficiary Email id"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp" />
+                </TableRow>
+
+            </TableLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
+                <View
+                    android:id="@+id/centerShim"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/btCler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/centerShim"
+                    android:drawableLeft="@drawable/ic_clear_black_24dp"
+                    android:text="Clear" />
+
+                <Button
+                    android:id="@+id/btReg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="11dp"
+                    android:layout_toEndOf="@+id/centerShim"
+                    android:drawableLeft="@drawable/ic_done_black_24dp"
+                    android:text="Submit" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_margin="30dp"
+                android:text="@string/note_point"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

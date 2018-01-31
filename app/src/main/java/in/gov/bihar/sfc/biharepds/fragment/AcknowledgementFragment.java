@@ -35,9 +35,10 @@ public class AcknowledgementFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private String mParam1, mParam2, selectedMonth, selectedYear;
     private Spinner spinnerM, spinnerY;
-    private String[] month = {"Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+    private String[] month = {"Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     private String[] year = {"Year", "2016", "2017", "2018", "2019", "2020"};
     private TextView lblAAYRice, lblAAYWheat, lblPHHRice, lblPHHWheat;
+    private double lblAAYRiceValue, lblAAYWheatValue, lblPHHRiceValue, lblPHHWheatValue;
     private TableLayout displayValues;
     private EditText aayRice, aayWheat, phhRice, phhWheat;
     private String aayRiceValue, aayWheatValue, phhRiceValue, phhWheatValue;
@@ -177,6 +178,9 @@ public class AcknowledgementFragment extends Fragment {
             String fpsCode = db.getDealerCode();
             String url = "http://202.65.133.69:90/BiharAndroidServer/getFPSAllocation/" + fpsCode + "/" + selectedMonth + "/" + selectedYear;
             new MyAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
+
+            String url2 = "http://202.65.133.69:90/BiharAndroidServer/isacknowledged/" + fpsCode + "/" + selectedMonth + "/" + selectedYear;
+            new MyAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url2);
         }
 
     }
@@ -198,19 +202,18 @@ public class AcknowledgementFragment extends Fragment {
                     if (aayRiceValue.matches("") || aayWheatValue.matches("") || phhRiceValue.matches("") || phhWheatValue.matches("")) {
                         Toast.makeText(getActivity(), "Please Enter Delivered Quantity.", Toast.LENGTH_LONG).show();
                     } else {
+                        if( validateFields(aayRiceValue, aayWheatValue, phhRiceValue, phhWheatValue)) {
+                            DatabaseHandler db = new DatabaseHandler(getActivity());
+                            DealerInformation info = db.getDealerDetails();
+                            db.close();
+                            String content = "('" + info.getFps_code() + "',To_number(TO_CHAR(TO_DATE('" + selectedMonth + "','Month'),'MM')),'" + selectedYear + "'," +
+                                    phhRiceValue.replace(".", "vr") + "," + phhWheatValue.replace(".", "vr") + "," + aayRiceValue.replace(".", "vr") + "," + aayWheatValue.replace(".", "vr") + "," +
+                                    info.getDistrict_id() + "," + info.getBlock_id() + "," + info.getPanchayat_id() + ")";
 
-
-                        DatabaseHandler db = new DatabaseHandler(getActivity());
-                        DealerInformation info = db.getDealerDetails();
-                        db.close();
-                        String content = "('" + info.getFps_code() + "','" + selectedMonth + "','" + selectedYear + "'," +
-                                phhRiceValue.replace(".", "vr") + "," + phhWheatValue.replace(".", "vr") + "," + aayRiceValue.replace(".", "vr") + "," + aayWheatValue.replace(".", "vr") + "," +
-                                info.getDistrict_id() + "," + info.getBlock_id() + "," + info.getPanchayat_id() + ")";
-
-                        String url = "http://202.65.133.69:90/BiharAndroidServer/setDealerAcknowledgement/" + content;
-                        new MyAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
-                        resetFields(arg0);
-
+                            String url = "http://202.65.133.69:90/BiharAndroidServer/setDealerAcknowledgement/" + content;
+                            new MyAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
+                            resetFields(arg0);
+                        }
                     }
                 }
 
@@ -244,6 +247,32 @@ public class AcknowledgementFragment extends Fragment {
         inputManager.hideSoftInputFromWindow(binder, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
+    public  boolean  validateFields(String aayRiceValue,String  aayWheatValue,String  phhRiceValue,String  phhWheatValue){
+        boolean flag = true;
+        lblAAYRiceValue = Double.parseDouble(lblAAYRice.getText().toString().trim());
+        lblAAYWheatValue = Double.parseDouble(lblAAYWheat.getText().toString().trim());
+        lblPHHRiceValue = Double.parseDouble(lblPHHRice.getText().toString().trim());
+        lblPHHWheatValue = Double.parseDouble(lblPHHWheat.getText().toString().trim());
+
+        if( (Double.parseDouble(aayRiceValue) > lblAAYRiceValue) ){
+            flag = false;
+            Toast.makeText(getActivity(), "Entered AAY Rice Quantity is more than Allocated Quantity.", Toast.LENGTH_LONG).show();
+        }else if((Double.parseDouble(aayWheatValue) > lblAAYWheatValue)){
+            flag = false;
+            Toast.makeText(getActivity(), "Entered AAY Wheat Quantity is more than Allocated Quantity.", Toast.LENGTH_LONG).show();
+        }else if((Double.parseDouble(phhRiceValue) > lblPHHRiceValue)){
+            flag = false;
+            Toast.makeText(getActivity(), "Entered PHH Rice Quantity is more than Allocated Quantity.", Toast.LENGTH_LONG).show();
+        }else if((Double.parseDouble(phhWheatValue) > lblPHHWheatValue)){
+            flag = false;
+            Toast.makeText(getActivity(), "Entered PHH Wheat Quantity is more than Allocated Quantity.", Toast.LENGTH_LONG).show();
+        }else{
+            flag = true;
+        }
+
+        return flag;
+    }
+
     private class MyAsyncTask extends AsyncTask<String, Void, String> {
 
         @Override
@@ -275,8 +304,7 @@ public class AcknowledgementFragment extends Fragment {
                         lblPHHWheat.setText("Problem");
                     }
                     displayValues.setVisibility(getView().VISIBLE);
-                } else {
-
+                } else if(result.contains("Acknowledgement")) {
                     new AlertDialog.Builder(getActivity())
                             .setMessage(result)
                             .setPositiveButton("ok", null

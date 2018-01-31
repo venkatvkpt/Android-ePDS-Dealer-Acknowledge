@@ -19,7 +19,9 @@ import com.txusballesteros.widgets.AnimationMode;
 import com.txusballesteros.widgets.FitChart;
 import com.txusballesteros.widgets.FitChartValue;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 
 import in.gov.bihar.sfc.biharepds.R;
@@ -37,7 +39,7 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1", ARG_PARAM2 = "param2";
     private String mParam1, mParam2;
     private DealerInformation info = new DealerInformation();
-    private TextView ackNav, statusNav, dealerName, fpsLicense, fpsLocation, setPercent, lblQty;
+    private TextView ackNav, statusNav, dealerName, fpsLicense, fpsLocation, setPercent, lblQty, setChartDesc;
     private FitChart fitChart;
     private ProgressBar progressBar;
     private ScrollView scrollView;
@@ -92,6 +94,9 @@ public class HomeFragment extends Fragment {
             initViewIds(view);
             displayTitleCard();
             clickFooter(view);
+            Calendar cal = Calendar.getInstance();
+            String monthName = new SimpleDateFormat("MMMM").format(cal.getTime());
+            setChartDesc.setText(monthName.toLowerCase() +" distribution status");
             new MyAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         } else {
             Intent signinIntent = new Intent("in.gov.bihar.sfc.biharepds.activity.NoAccessActivity");
@@ -109,6 +114,7 @@ public class HomeFragment extends Fragment {
         dealerName = (TextView) view.findViewById(R.id.dealer_name);
         fpsLicense = (TextView) view.findViewById(R.id.dealer_license_number);
         fpsLocation = (TextView) view.findViewById(R.id.dealer_location);
+        setChartDesc = (TextView) view.findViewById(R.id.setChartDesc);
     }
 
     public void displayTitleCard() {
@@ -169,6 +175,7 @@ public class HomeFragment extends Fragment {
                     processChart(value);
                     setPercent.setText(value + "%");
                     lblQty.setText(data[1]);
+
                 } catch (Exception e) {
                     setPercent.setText("N/A");
                     processChart(0.0f);

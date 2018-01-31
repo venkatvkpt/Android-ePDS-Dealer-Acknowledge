@@ -92,7 +92,107 @@
 
             </RelativeLayout>
 
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/displayValues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10sp"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:stretchColumns="1"
+                android:visibility="gone"
+                >
 
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/lblText"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_span="2"
+                        android:text="Allocated Remaining Quantity in Quintal"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="12sp" />
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_marginTop="10sp"
+                        android:text="AAY Rice:            "
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/lblAAYRice"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_marginTop="10sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_marginTop="10sp"
+                        android:background="@color/colorBackground"
+                        android:text="@string/ack_aay_wheat"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/lblAAYWheat"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:scrollHorizontally="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:background="@color/colorBackground"
+                        android:text="PHH Rice:"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/lblPHHRice"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:background="@color/colorBackground"
+                        android:text="PHH Wheat:"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:id="@+id/lblPHHWheat"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp"/>
+                </TableRow>
+
+            </TableLayout>
 
             <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/editable"
@@ -114,7 +214,7 @@
                         android:layout_span="2"
                         android:text="Enter Today's Delivered Quantity in Quintal "
                         android:textColor="@color/colorOrange"
-                        android:textSize="15sp"
+                        android:textSize="12sp"
                         android:layout_marginBottom="5dp"/>
 
                 </TableRow>

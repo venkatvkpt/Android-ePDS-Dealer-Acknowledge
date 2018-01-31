@@ -25,6 +25,7 @@ import in.gov.bihar.sfc.biharepds.R;
 import in.gov.bihar.sfc.biharepds.fragment.AcknowledgementFragment;
 import in.gov.bihar.sfc.biharepds.fragment.DSDStatusFragment;
 import in.gov.bihar.sfc.biharepds.fragment.HomeFragment;
+import in.gov.bihar.sfc.biharepds.fragment.RegisterNumberFragment;
 import in.gov.bihar.sfc.biharepds.local.DatabaseHandler;
 
 public class NavigationActivity extends AppCompatActivity {
@@ -42,9 +43,10 @@ public class NavigationActivity extends AppCompatActivity {
     // index to identify current nav menu item
     public static int navItemIndex = 0;
     // tags used to attach the fragments
-    private static final String TAG_HOME = "home";
-    private static final String TAG_Acknowledgement = "dealer acknowledgement";
-    private static final String TAG_STATUS = "daily dsd status";
+    private static final String TAG_HOME = "Home";
+    private static final String TAG_Acknowledgement = "Dealer SIO Acknowledgement";
+    private static final String TAG_STATUS = "Daily Distribution Status";
+    private static final String TAG_RNumber = "Register Number";
 
     public static String CURRENT_TAG = TAG_HOME;
     // toolbar titles respected to selected nav menu item
@@ -158,6 +160,10 @@ public class NavigationActivity extends AppCompatActivity {
                 // Daily DSD Status
                 DSDStatusFragment DSDStatusFragment = new DSDStatusFragment();
                 return DSDStatusFragment;
+            case 3:
+                // Register Mobile Number
+                RegisterNumberFragment registerNumberFragment = new RegisterNumberFragment();
+                return registerNumberFragment;
             default:
                 return new HomeFragment();
         }
@@ -194,6 +200,11 @@ public class NavigationActivity extends AppCompatActivity {
                         navItemIndex = 2;
                         CURRENT_TAG = TAG_STATUS;
                         break;
+                    case R.id.nav_rNumber:
+                        navItemIndex = 3;
+                        CURRENT_TAG = TAG_RNumber;
+                        break;
+
 
                     case R.id.nav_about_us:
                         // launch new intent instead of loading fragment

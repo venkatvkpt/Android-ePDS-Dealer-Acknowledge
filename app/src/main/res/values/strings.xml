@@ -8,22 +8,24 @@
 
     <!-- Navigation Drawer menu labels -->
     <string name="nav_home">Home</string>
-    <string name="nav_ack">Dealer Acknowledgement</string>
-    <string name="nav_status">Daily DSD Status</string>
+    <string name="nav_ack">Dealer SIO Acknowledgement</string>
+    <string name="nav_status">Daily Distribution Status</string>
     <string name="nav_about_us">About Us</string>
+    <string name="nav_rNumber">Register Beneficiary Contact</string>
 
     <!-- Toolbar titles when navigation menu item is selected -->
     <string-array name="nav_item_activity_titles">
         <item>Home</item>
-        <item>Dealer Acknowledgement Form</item>
-        <item>Daily DSD Status</item>
+        <item>Dealer SIO Acknowledgement Form</item>
+        <item>Daily Distribution Status Form</item>
+        <item>Register Beneficiary Mobile Number Form</item>
 
     </string-array>
 
     <string name="activity_title_about_us">About Us</string>
     <string name="action_signout">Sign Out</string>
     <string name="activity_title_refresh">Refresh</string>
-    <string name="activity_exist">Exist</string>
+    <string name="activity_exit">Exit</string>
     <string name="label_signin">Sign In</string>
     <string name="sign_in_to_continue">Sign in to Continue</string>
     <string name="sign_in_sub_text">Just a enter details to get you started</string>
@@ -44,6 +46,7 @@
     <string name="ack_phh_wheat">PHH Wheat:</string>
     <string name="ack_edit_title">Enter DSD Quantity in Quintal</string>
     <string name="lbl_chart_status">this month DSD status</string>
+    <string name="note_point">Note: mobile numbers registered with this application will receive the grain dispatch status for the your fpshop.</string>
 
 
 </resources>

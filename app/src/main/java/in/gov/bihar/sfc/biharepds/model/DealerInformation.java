@@ -77,4 +77,8 @@ public class DealerInformation {
     public void setIs_active(String is_active) {
         this.is_active = is_active;
     }
+
+
+
+
 }
